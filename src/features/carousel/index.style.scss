@@ -1,0 +1,51 @@
+// Editor style and not iframe preview
+html:not(.block-editor-block-preview__content-iframe) {
+  [data-preview-mode="PREVIEW"] {
+    &:not(.slider-initialized):not(.has-warning) {
+      height: 0 !important;
+      min-height: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    ~ .slider-initialized {
+      display: block;
+
+      .swiper-slide {
+        [data-block] {
+          pointer-events: none;
+        }
+      }
+    }
+
+    + [data-preview-mode="PREVIEW"] {
+      margin-top: 0 !important;
+    }
+  }
+}
+
+// Pattern preview
+.block-editor-block-preview__content-iframe {
+  .js-carousel-layout {
+    position: relative;
+
+    &:not([data-preview-mode="EDIT"]) {
+      overflow: visible;
+
+      > .carousel__inner {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+// Carousel preview for query loop blocks
+[data-preview-mode="PREVIEW"] > .swiper {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
+  > ul > li.swiper-slide {
+    display: block !important;
+  }
+}

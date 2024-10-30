@@ -1,0 +1,18 @@
+// Custom variables.
+@import "../../base";
+
+[style*="--bb--aspect-ratio--sm:"] {
+  aspect-ratio: var(--bb--aspect-ratio--sm);
+}
+
+@media (min-width: map-get($breakpoints, md )) {
+  [style*="--bb--aspect-ratio--md:"] {
+    aspect-ratio: var(--bb--aspect-ratio--md);
+  }
+}
+
+@media (min-width: map-get($breakpoints, lg )) {
+  [style*="--bb--aspect-ratio--lg:"] {
+    aspect-ratio: var(--bb--aspect-ratio--lg);
+  }
+}

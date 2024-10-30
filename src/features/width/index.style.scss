@@ -1,0 +1,18 @@
+// Custom variables.
+@import "../../base";
+
+[style*="--bb--width--sm:"] {
+  width: var(--bb--width--sm) !important;
+}
+
+@media (min-width: map-get($breakpoints, md )) {
+  [style*="--bb--width--md:"] {
+    width: var(--bb--width--md) !important;
+  }
+}
+
+@media (min-width: map-get($breakpoints, lg )) {
+  [style*="--bb--width--lg:"] {
+    width: calc(var(--bb--width--lg) * var(--wp-block-editor-iframe-zoom-out-scale,1)) !important;
+  }
+}

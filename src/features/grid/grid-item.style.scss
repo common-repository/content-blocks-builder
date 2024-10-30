@@ -1,0 +1,41 @@
+// Custom variables.
+@import "../../base";
+
+// Make grid item full width, due to the margin right/left auto on inherit layout.
+// .is-grid-item.wp-block {
+//   width: 100%;
+// }
+
+[style*="--bb--grid-item--column--sm:"] {
+  grid-column: var(--bb--grid-item--column--sm);
+}
+[style*="--bb--grid-item--row--sm:"] {
+  grid-row: var(--bb--grid-item--row--sm);
+}
+[style*="--bb--grid-item--order--sm:"] {
+  order: var(--bb--grid-item--order--sm);
+}
+
+@media (min-width: map-get($breakpoints, md )) {
+  [style*="--bb--grid-item--column--md:"] {
+    grid-column: var(--bb--grid-item--column--md);
+  }
+  [style*="--bb--grid-item--row--md:"] {
+    grid-row: var(--bb--grid-item--row--md);
+  }
+  [style*="--bb--grid-item--order--md:"] {
+    order: var(--bb--grid-item--order--md);
+  }
+}
+
+@media (min-width: map-get($breakpoints, lg )) {
+  [style*="--bb--grid-item--column--lg:"] {
+    grid-column: var(--bb--grid-item--column--lg);
+  }
+  [style*="--bb--grid-item--row--lg:"] {
+    grid-row: var(--bb--grid-item--row--lg);
+  }
+  [style*="--bb--grid-item--order--lg:"] {
+    order: var(--bb--grid-item--order--lg);
+  }
+}

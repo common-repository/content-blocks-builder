@@ -1,0 +1,134 @@
+.bb\:has-background {
+  position: relative;
+  overflow: hidden;
+
+  .bb\:block-background {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    max-width: none !important;
+    margin-top: 0;
+
+    &[style*="background-attachment: fixed"] {
+      will-change: unset !important;
+    }
+
+    ~ *:not(.block-list-appender) {
+      position: relative;
+      z-index: 1;
+    }
+
+    + .block-list-appender {
+      position: relative;
+    }
+
+    &--video {
+      video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  // Reset bock gap for the first block if there is a background
+  .editor-styles-wrapper & > .bb\:block-background + *,
+  > .bb\:block-background + * {
+    margin-top: 0;
+  }
+
+  .editor-styles-wrapper & {
+    min-height: 48px;;
+  }
+}
+
+.bb\:has-background--video {
+  z-index: 0;
+
+  ~ * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.cbb-video-play-pause {
+  --pp-size: var(--bb-attr--play-pause-size, 36px);
+  --pp-icon-size: var(--bb-attr--play-pause-icon-size, 20px);
+  --pp-edge: var(--bb-attr--play-pause-edge, 2rem);
+  --pp-color: var(--bb-attr--play-pause-icon-color, rgba(0,0,0,.6));
+  --pp-focus-shadow: var(--bb-attr--play-pause-focus-shadow, 0px 0px 0px 3px #fff, 0px 0px 0px 5px var(--wp--preset--color--accent,#0071e3));
+  position: absolute !important;
+  right: var(--pp-edge);
+  bottom: var(--pp-edge);
+  z-index: 2 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: var(--pp-size) !important;
+  height: var(--pp-size) !important;
+  margin: 0;
+  padding: 0;
+  color: var(--pp-color) !important;
+  cursor: pointer;
+  border: 0 !important;
+  border-radius: 50% !important;
+  opacity: 0;
+  transition: .25s;
+
+  svg {
+    width: var(--pp-icon-size);
+    height: var(--pp-icon-size);
+    pointer-events: none;
+    fill: currentColor;
+  }
+
+  &:focus {
+    box-shadow: var(--pp-focus-shadow);
+    outline: none;
+  }
+}
+
+.paused,
+.playing {
+  .cbb-video-play-pause {
+    opacity: 1;
+  }
+}
+
+.playing {
+  .icon-play {
+    display: none;
+  }
+
+  .icon-pause {
+    display: block;
+  }
+}
+
+.paused {
+  .icon-play {
+    display: block;
+  }
+
+  .icon-pause {
+    display: none;
+  }
+}
+
+.bb\:link-to-post {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  margin: 0;
+}
+

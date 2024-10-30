@@ -1,0 +1,26 @@
+// Share styles
+.collapse {
+  &:not(.show) {
+    display: none;
+  }
+}
+
+.collapsing {
+  overflow: hidden;
+
+  &.transition-width {
+    width: 0;
+    overflow: hidden;
+    transition: width 0.35s ease;
+  }
+
+  &.transition-height {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.35s ease;
+  }
+
+  @include reduce-motion(transition);
+}
+
+

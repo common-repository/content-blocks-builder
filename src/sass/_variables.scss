@@ -1,0 +1,13 @@
+// Screen breakpoints
+$breakpoints: (
+  sm: 576px,
+  md: 600px,
+  lg: 1024px,
+);
+
+// Z index
+$zindex-modal:             110000;
+$zindex-modal-backdrop:    100000;
+
+// The admin bar is 99999
+$zindex-sticky:            99990;

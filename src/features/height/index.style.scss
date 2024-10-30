@@ -1,0 +1,18 @@
+// Custom variables.
+@import "../../base";
+
+[style*="--bb--height--sm:"] {
+  height: var(--bb--height--sm) !important;
+}
+
+@media (min-width: map-get($breakpoints, md )) {
+  [style*="--bb--height--md:"] {
+    height: var(--bb--height--md) !important;
+  }
+}
+
+@media (min-width: map-get($breakpoints, lg )) {
+  [style*="--bb--height--lg:"] {
+    height: var(--bb--height--lg) !important;
+  }
+}

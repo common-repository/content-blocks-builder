@@ -1,0 +1,97 @@
+$offcanvas-width:      25rem;
+$offcanvas-height:     30vh;
+$offcanvas-transition: transform .3s ease-out !default;
+
+.is-offcanvas {
+  display: block;
+  width: auto;
+  margin: 0 !important;
+  overflow: visible;
+  visibility: hidden;
+  transition: $offcanvas-transition;
+
+  &.bb-modal-initialized {
+    max-width: 100% !important;
+  }
+
+  .bb-modal-dialog,
+  .bb-modal-content {
+    height: 100%;
+    margin: 0;
+  }
+
+  .bb-modal-content {
+    border-radius: 0;
+  }
+
+  .bb-modal-body {
+    overflow-y: auto;
+  }
+
+  &.placement-start,
+  &.placement-end{
+    top: 0;
+    bottom: 0;
+    width: var(--bb--modal-width--sm, $offcanvas-width);
+  }
+
+  &.placement-start {
+    right: auto;
+    left: 0;
+
+    &:not(.custom-animation) {
+      transform: translateX(-100%);
+    }
+  }
+
+  &.placement-end {
+    right: 0;
+    left: auto;
+
+    &:not(.custom-animation) {
+      transform: translateX(100%);
+    }
+  }
+
+  &.placement-top,
+  &.placement-bottom{
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-height: 100%;
+
+    .bb-modal-content {
+      width: 100%;
+    }
+
+    height: var(--bb--modal-height--sm, $offcanvas-height);
+  }
+
+  &.placement-top {
+    top: 0;
+    bottom: auto;
+
+    &:not(.custom-animation) {
+      transform: translateY(-100%);
+    }
+  }
+
+  &.placement-bottom {
+    top: auto;
+    bottom: 0;
+
+    &:not(.custom-animation) {
+      transform: translateY(100%);
+    }
+  }
+
+  &.show {
+    &:not(.custom-animation) {
+      transform: none;
+    }
+  }
+
+  &.is-animating {
+    overflow: visible;
+  }
+}

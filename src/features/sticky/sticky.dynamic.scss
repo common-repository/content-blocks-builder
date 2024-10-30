@@ -1,0 +1,28 @@
+// Custom variables.
+@import "../../base";
+
+.is-stick-to-top[style*="--bb--sticky-offset--sm:"] {
+  top: var(--bb--sticky-offset--sm);
+}
+.is-stick-to-bottom[style*="--bb--sticky-offset--sm:"] {
+  bottom: var(--bb--sticky-offset--sm);
+}
+
+@media (min-width: map-get($breakpoints, md )) {
+  .is-stick-to-top[style*="--bb--sticky-offset--md:"] {
+    top: var(--bb--sticky-offset--md);
+  }
+  .is-stick-to-bottom[style*="--bb--sticky-offset--md:"] {
+    bottom: var(--bb--sticky-offset--md);
+  }
+}
+
+@media (min-width: map-get($breakpoints, lg )) {
+  .is-stick-to-top[style*="--bb--sticky-offset--lg:"] {
+    top: var(--bb--sticky-offset--lg);
+  }
+  .is-stick-to-bottom[style*="--bb--sticky-offset--lg:"] {
+    bottom: var(--bb--sticky-offset--lg);
+  }
+}
+

@@ -1,0 +1,25 @@
+@import '../../base.scss';
+
+.toggle-content-trigger {
+  cursor: pointer;
+}
+
+.fade {
+  transition: opacity 0.25s ease-in-out;
+
+  &:not(.show) {
+    opacity: 0;
+  }
+}
+
+// Collapse
+@import './collapse';
+
+// Modal
+@import './modal';
+
+// Offcanvas
+@import './offcanvas';
+
+// Popover
+@import './popover';

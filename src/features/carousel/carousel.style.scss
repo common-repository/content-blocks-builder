@@ -1,0 +1,248 @@
+.js-carousel-layout {
+  position: relative;
+  padding: 0;
+
+  &:not([data-preview-mode="EDIT"]) {
+    overflow: hidden;
+
+    // When slider script is not executed
+    > ul,
+    > .carousel__inner {
+      display: flex;
+      gap: var(--cbb-carousel-gap, 0);
+    }
+
+    > ul > li,
+    > .carousel__inner > .is-carousel-item {
+      flex: 0 0 var(--cbb-slide-width, 100%);
+    }
+  }
+
+  &.slider-initialized {
+    overflow: visible;
+  }
+
+  // This box-sizng is required to make the some features of swipers to work like centered active slide.
+  &,
+  * {
+    box-sizing: border-box;
+  }
+
+  &.swiper-3d {
+    .swiper-slide-shadow-top,
+    .swiper-slide-shadow-right,
+    .swiper-slide-shadow-bottom,
+    .swiper-slide-shadow-left,
+    .swiper-slide-shadow {
+      position: absolute;
+    }
+  }
+
+  .is-carousel-item {
+    display: block; // Override bootstrap style in the carousel-item class
+    // margin-top: unset; // Reset layout flow from WP
+    // Override third-party styles such as bootstrap
+    margin: 0;
+    transition-property: transform, opacity, height, outline !important;
+
+    // Remove unwanted margin added by Gutenberg
+    [class*="swiper-slide-shadow"] {
+      margin: 0;
+    }
+  }
+
+  .is-equal-height > * {
+    height: auto;
+  }
+
+  // Inner reveal animations
+  [data-reveal-animation] {
+    transition: all .15s;
+  }
+
+  // Navigation
+  .swiper-button-next,
+  .swiper-button-prev {
+    margin-top: calc(0px - (var(--swiper-navigation-size) / 2)) !important;
+
+    &.has-custom-icon {
+      width: var(--swiper-navigation-size, 40px);
+      height: var(--swiper-navigation-size, 40px);
+
+      &::after {
+        display: none;
+      }
+
+      svg {
+        width: 100%;
+        height: auto;
+        fill: var(--swiper-navigation-color,var(--swiper-theme-color));
+      }
+    }
+  }
+
+  .swiper-button-next {
+    right: var(--swiper-navigation-spacing, 10px);
+  }
+
+  .swiper-button-prev {
+    left: var(--swiper-navigation-spacing, 10px);
+  }
+
+  // Pagination
+  .swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+  .swiper-vertical
+    > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    width: var(--swiper-pagination-bullet-size, 8px);
+  }
+
+  .swiper-pagination-vertical.swiper-pagination-bullets,
+  .swiper-vertical > .swiper-pagination-bullets {
+    margin-top: 0;
+  }
+
+  .swiper-pagination-custom,
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: var(--swiper-pagination-spacing, 10px);
+    max-width: none !important;
+  }
+
+  .swiper-vertical > .swiper-pagination-bullets,
+  .swiper-pagination-vertical.swiper-pagination-bullets {
+    right: var(--swiper-pagination-spacing, 10px);;
+  }
+
+  // Scrollbar
+  .swiper-scrollbar {
+    background-color: var(--swiper-scrollbar-track-color, rgba(0, 0, 0, 0.2));
+
+    &-drag {
+      background-color: var(
+        --swiper-scrollbar-slider-color,
+        rgba(0, 0, 0, 0.5)
+      );
+    }
+  }
+
+  .swiper-horizontal > .swiper-scrollbar {
+    bottom: var(--swiper-scrollbar-spacing, 3px);
+    height: var(--swiper-scrollbar-track-size, 5px);
+  }
+
+  .swiper-vertical > .swiper-scrollbar {
+    right: var(--swiper-scrollbar-spacing, 3px);
+    width: var(--swiper-scrollbar-track-size, 5px);
+    margin-top: 0;
+  }
+
+  // .swiper-vertical
+  .swiper-vertical,
+  .swiper-vertical > .swiper-wrapper {
+    height: 100%;
+    max-height: 100%;
+  }
+
+  // Core query
+  &.wp-block-query {
+    > .swiper {
+      max-width: none;
+    }
+
+    .wp-block-post-template {
+      padding: 0;
+      margin: 0;
+    }
+
+    .wp-block-post {
+      padding: 0;
+      margin: 0;
+    }
+
+    &.alignfull > .wp-block-post-template {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .wp-block-post-template > li {
+    transition-property: transform, opacity, height, outline !important;
+  }
+
+  > .swiper > ul > li + li,
+  > ul > li + li {
+    margin-top: 0 !important;
+  }
+}
+
+// Active slides
+.centered-active-slide {
+  > .swiper-slide {
+    transition: transform .3s ease;
+    transform: scale(var(--swiper-inactive-scale, 1)) translateZ(0);
+  }
+
+  > .swiper-slide.swiper-slide-active {
+    transform: scale(1) translateZ(0) !important;
+  }
+}
+
+// Preloader
+.cbb-loader {
+  &,
+  &:before,
+  &:after {
+    width: 2em;
+    height: 2em;
+    margin: auto;
+    border-radius: 50%;
+    animation-fill-mode: both;
+    animation: loader3Dots 1.5s infinite ease-in-out;
+  }
+
+  position: absolute;
+  z-index: 2;
+  top: calc(50% - 25px);
+  left: calc(50% - 7px);
+  font-size: 7px;
+  color: var(--bb-attr--loader-color, #fff);
+  text-indent: -9999em;
+  transform: translateZ(0);
+  animation-delay: -0.12s !important;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+  }
+  &:before {
+    left: -3em;
+    animation-delay: -0.24s;
+  }
+  &:after {
+    left: 3em;
+  }
+
+  .slider-initialized > & {
+    display: none;
+  }
+}
+
+.has-preloader.is-fading-loader {
+  > *:not(.cbb-loader) {
+    visibility: hidden;
+  }
+
+  &.slider-initialized {
+    > * {
+      visibility: visible;
+    }
+  }
+}
+
+
+@keyframes loader3Dots {
+  0%, 80%, 100% { box-shadow: 0 2.5em 0 -1.3em; }
+  40% { box-shadow: 0 2.5em 0 0; }
+}

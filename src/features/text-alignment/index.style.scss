@@ -1,0 +1,18 @@
+// Custom variables.
+@import "../../base";
+
+[style*="--bb--text-alignment--sm:"] {
+  text-align: var(--bb--text-alignment--sm);
+}
+
+@media (min-width: map-get($breakpoints, md )) {
+  [style*="--bb--text-alignment--md:"] {
+    text-align: var(--bb--text-alignment--md);
+  }
+}
+
+@media (min-width: map-get($breakpoints, lg )) {
+  [style*="--bb--text-alignment--lg:"] {
+    text-align: var(--bb--text-alignment--lg);
+  }
+}

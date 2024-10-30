@@ -1,0 +1,99 @@
+// Custom variables.
+@import "../../base";
+
+.is-sticky-block {
+  position: sticky;
+  z-index: $zindex-sticky;
+  // will-change: transform; /* ignore for now, because it causes inner modals do not work*/
+
+  &.is-grid-item {
+    &.is-stick-top {
+      align-self: start;
+    }
+    &.is-stick-to-bottom {
+      align-self: end;
+    }
+  }
+
+  + .is-sticky-placeholder {
+    position: absolute;
+    display: none;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+.is-sticky-on-scrollup,
+.is-fixed {
+  &.is-sticky-header,
+  &.is-sticky-footer {
+    width: 100%;
+  }
+}
+
+// Always stick to the viewport
+.is-sticky-block.is-fixed {
+  position: fixed;
+
+  &.alignfull {
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  + .is-sticky-placeholder {
+    position: relative;
+    display: block;
+  }
+}
+
+// Stick on scrolling up
+.is-sticky-block.is-sticky-on-scrollup {
+  position: relative;
+
+  &.is-transition {
+    transition: transform .4s ease;
+  }
+
+  &.is-unstuck {
+    margin-top: 0 !important;
+  }
+
+  &.is-stuck,
+  &.is-unstuck {
+    position: fixed;
+    top: 0;
+
+    &.alignfull {
+      width: 100% !important;
+    }
+
+    + .is-sticky-placeholder {
+      position: relative;
+      display: block;
+    }
+  }
+
+  &.is-unstuck {
+    transform: translateY(calc(-100% - 1rem));
+  }
+
+  &.is-stuck {
+    transform: translateY(0);
+  }
+}
+
+.top-0 {
+  top: 0;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+// Editor
+.editor-styles-wrapper .block-editor-block-list__block.is-fixed {
+  position: relative;
+  top: unset;
+  bottom: unset;
+}
+

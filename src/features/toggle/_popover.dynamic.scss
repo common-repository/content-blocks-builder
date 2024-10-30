@@ -1,0 +1,13 @@
+@import '../../base.scss';
+
+.is-popover {
+  @media (min-width: map-get($breakpoints, md )) {
+    width: var(--bb--modal-width--md, auto);
+    height: var(--bb--modal-height--md, auto);
+  }
+
+  @media (min-width: map-get($breakpoints, lg )) {
+    width: var(--bb--modal-width--lg, auto);
+    height: var(--bb--modal-height--lg, auto);
+  }
+}

@@ -1,0 +1,86 @@
+/**
+ * The following styles get applied inside the editor only.
+ */
+@import "./sass/_wordpress.scss";
+@import "./components/block-edit-modal/editor.scss";
+
+// Carousel inspector controls
+@import './features/carousel/editor.scss';
+
+// Custom style for block's placeholder
+.components-placeholder__label {
+  align-self: stretch;
+
+  svg {
+    max-width: 48px;
+  }
+}
+
+// Make sure the inserter button is enabled on site editor
+.block-editor-iframe__body .wp-block-boldblocks-custom.is-selected {
+  .block-list-appender,
+  .block-editor-inserter {
+    pointer-events: auto !important;
+  }
+}
+
+@include break-medium() {
+  .interface-interface-skeleton__sidebar {
+    &.is-sidebar-mode,
+    &.is-fullscreen-editor {
+      .components-panel__header {
+        display: none;
+      }
+    }
+    &.is-sidebar-mode {
+      overflow: hidden;
+    }
+  }
+}
+
+// Show only 1 spacing label
+.spacing-panel-item + .spacing-panel-item {
+  .spacing-label {
+    display: none;
+  }
+}
+
+// Hide the default layout toolbar buttons on post-template block
+.cbb-toolbar-query-layout ~ :not(.cbb-toolbar-preview) {
+  display: none;
+}
+
+// Don't respect content width on the block element on the edit variation screen
+.editor-styles-wrapper.post-type-boldblocks_variation .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  max-width: none;
+}
+
+// Remove the margin bottom on readonly wrapper html
+.is-editing-disabled.wp-block-html {
+  display: flex;
+}
+
+// Make the background dropdown behind the media modal
+.components-popover.cbb-background-dropdown {
+  z-index: 150000;
+}
+
+// Fix the margin bottom of some nested VStack components in side PanelBody components
+.boldblocks-panel-settings .components-v-stack > * {
+  margin-bottom: 0 !important;
+
+  > p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+// Dropdown of custom control in block toolbar.
+.cbb-dropdown .components-popover__content {
+  min-width: 300px;
+  padding: 12px;
+
+  h2 {
+    font-size: 13px;
+    color: #1e1e1e;
+  }
+}

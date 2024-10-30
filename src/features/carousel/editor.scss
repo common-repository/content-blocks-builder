@@ -1,0 +1,87 @@
+.is-carousel-settings {
+  .components-base-control__field {
+    margin-bottom: 0;
+  }
+
+  .components-range-control .components-input-control__container {
+    width: 75px;
+  }
+
+  .unit-range-control .unit-control,
+  .components-unit-control .components-input-control__container,
+  input[type="number"] {
+    max-width: 75px;
+  }
+
+  input[type="number"] {
+    text-align: right;
+  }
+
+  .input-with-auto {
+    .group-control__body > * {
+      flex-basis: auto !important;
+    }
+
+    .input-control {
+      flex-grow: 0;
+      order: 2;
+    }
+  }
+
+  .effect-presets,
+  .custom-settings {
+    margin-bottom: 0;
+  }
+
+  .effect-presets {
+    button {
+      min-width: 58px;
+    }
+  }
+
+  .section-title {
+    .components-base-control__label {
+      display: block;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+
+  .unit-range-control {
+    .unit-control .components-input-control,
+    .range-control .components-range-control {
+      margin-bottom: 0;
+    }
+
+    .unit-control {
+      order: 2;
+    }
+  }
+}
+
+.is-carousel-settings .components-unit-control .components-input-base,
+.is-row-layout .components-base-control__field,
+.components-select-control.is-row-layout {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  label {
+    margin-bottom: 0;
+  }
+}
+
+.is-row-layout .components-base-control__field {
+  display: flex;
+  gap: 8px;
+}
+
+.components-select-control.is-row-layout {
+  .components-input-control__container {
+    max-width: 75px;
+  }
+
+  select {
+    text-align: right;
+  }
+}

@@ -1,0 +1,8 @@
+@import '../premium-only/animation/index.style.scss';
+
+.js-carousel-layout,
+.is-toggle-content {
+  .animate__waiting {
+    visibility: visible;
+  }
+}

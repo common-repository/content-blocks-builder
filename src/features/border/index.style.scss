@@ -1,0 +1,66 @@
+// Custom variables.
+@import "../../base";
+
+[style*="--bb--border-top--sm:"] {
+  border-top: var(--bb--border-top--sm) !important;
+}
+[style*="--bb--border-right--sm:"] {
+  border-right: var(--bb--border-right--sm) !important;
+}
+[style*="--bb--border-bottom--sm:"] {
+  border-bottom: var(--bb--border-bottom--sm) !important;
+}
+[style*="--bb--border-left--sm:"] {
+  border-left: var(--bb--border-left--sm) !important;
+}
+
+@media (min-width: map-get($breakpoints, md )) {
+  [style*="--bb--border-top--md:"] {
+    border-top: var(--bb--border-top--md) !important;
+  }
+  [style*="--bb--border-right--md:"] {
+    border-right: var(--bb--border-right--md) !important;
+  }
+  [style*="--bb--border-bottom--md:"] {
+    border-bottom: var(--bb--border-bottom--md) !important;
+  }
+  [style*="--bb--border-left--md:"] {
+    border-left: var(--bb--border-left--md) !important;
+  }
+}
+
+@media (min-width: map-get($breakpoints, lg )) {
+  [style*="--bb--border-top--lg:"] {
+    border-top: var(--bb--border-top--lg) !important;
+  }
+  [style*="--bb--border-right--lg:"] {
+    border-right: var(--bb--border-right--lg) !important;
+  }
+  [style*="--bb--border-bottom--lg:"] {
+    border-bottom: var(--bb--border-bottom--lg) !important;
+  }
+  [style*="--bb--border-left--lg:"] {
+    border-left: var(--bb--border-left--lg) !important;
+  }
+}
+
+// Border radius
+[style*="--bb--border-radius--"] {
+  overflow: hidden; // Force children to obey parent's radius border.
+}
+
+[style*="--bb--border-radius--sm:"] {
+  border-radius: var(--bb--border-radius--sm) !important;
+}
+
+@media (min-width: map-get($breakpoints, md )) {
+  [style*="--bb--border-radius--md:"] {
+    border-radius: var(--bb--border-radius--md) !important;
+  }
+}
+
+@media (min-width: map-get($breakpoints, lg )) {
+  [style*="--bb--border-radius--lg:"] {
+    border-radius: var(--bb--border-radius--lg) !important;
+  }
+}

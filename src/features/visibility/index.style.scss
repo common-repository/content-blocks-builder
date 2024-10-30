@@ -1,0 +1,11 @@
+[style*="--bb--z-index:"] {
+  position: relative;
+  z-index: var(--bb--z-index) !important;
+}
+
+[style*="--bb--overflow:"] {
+  overflow: var(--bb--overflow) !important;
+}
+
+
+

@@ -1,0 +1,64 @@
+// Custom variables.
+@import "../../base";
+
+[style*="--bb--grid--columns--"] {
+  display: grid;
+
+  > * + .is-grid-item {
+    margin-top: 0;
+  }
+
+  // Hide some weird elements like style tag, grammarly extention...
+  // > *:not(.is-grid-item):not(.block-list-appender) {
+  > style {
+    display: none;
+  }
+}
+// Remove default margin inside the editor when having some weird elements like grammarly extention...
+.editor-styles-wrapper [style*="--bb--grid--columns--"] {
+  > * + .is-grid-item {
+    margin-top: 0;
+  }
+}
+[style*="--bb--grid--columns--sm:"] {
+  grid-template-columns: var(--bb--grid--columns--sm);
+}
+[style*="--bb--grid--rows--sm:"] {
+  grid-template-rows: var(--bb--grid--rows--sm);
+}
+[style*="--bb--grid--gap--column--sm:"] {
+  column-gap: var(--bb--grid--gap--column--sm);
+}
+[style*="--bb--grid--gap--row--sm:"] {
+  row-gap: var(--bb--grid--gap--row--sm);
+}
+
+@media (min-width: map-get($breakpoints, md )) {
+  [style*="--bb--grid--columns--md:"] {
+    grid-template-columns: var(--bb--grid--columns--md);
+  }
+  [style*="--bb--grid--rows--md:"] {
+    grid-template-rows: var(--bb--grid--rows--md);
+  }
+  [style*="--bb--grid--gap--column--md:"] {
+    column-gap: var(--bb--grid--gap--column--md);
+  }
+  [style*="--bb--grid--gap--row--md:"] {
+    row-gap: var(--bb--grid--gap--row--md);
+  }
+}
+
+@media (min-width: map-get($breakpoints, lg )) {
+  [style*="--bb--grid--columns--lg:"] {
+    grid-template-columns: var(--bb--grid--columns--lg);
+  }
+  [style*="--bb--grid--rows--lg:"] {
+    grid-template-rows: var(--bb--grid--rows--lg);
+  }
+  [style*="--bb--grid--gap--column--lg:"] {
+    column-gap: var(--bb--grid--gap--column--lg);
+  }
+  [style*="--bb--grid--gap--row--lg:"] {
+    row-gap: var(--bb--grid--gap--row--lg);
+  }
+}

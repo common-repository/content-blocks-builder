@@ -1,0 +1,26 @@
+@mixin reduce-motion($property: "") {
+
+	@if $property == "transition" {
+		@media (prefers-reduced-motion: reduce) {
+			transition-duration: 0s !important;
+			transition-delay: 0s !important;
+		}
+	}
+
+	@else if $property == "animation" {
+		@media (prefers-reduced-motion: reduce) {
+			animation-duration: 1ms !important;
+			animation-delay: 0s !important;
+		}
+	}
+
+	@else {
+		@media (prefers-reduced-motion: reduce) {
+			transition-duration: 0s;
+			transition-delay: 0s;
+			animation-duration: 1ms;
+			animation-delay: 0s;
+		}
+	}
+
+}

@@ -1,0 +1,38 @@
+// Custom variables.
+@import "../../base";
+
+.bb\:has-overlay {
+  position: relative;
+  overflow: hidden;
+
+  .bb\:block-overlay {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    max-width: none !important;
+    margin: 0 !important;
+
+    ~ *:not(.block-list-appender) {
+      position: relative;
+      z-index: 1;
+    }
+
+    + .block-list-appender {
+      position: relative;
+    }
+  }
+
+  // Reset bock gap for the first block if there is a background
+  .editor-styles-wrapper & > .bb\:block-overlay + *,
+  > .bb\:block-overlay + * {
+    margin-top: 0;
+  }
+
+  .editor-styles-wrapper & {
+    min-height: 48px;;
+  }
+}

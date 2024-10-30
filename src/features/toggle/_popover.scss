@@ -1,0 +1,52 @@
+$popover-transform-x:     translate(30px, 0) !default;
+$popover-transform-y:     translate(0, 30px) !default;
+$popover-transition: transform .3s ease-out, opacity 0.3s ease-in-out !default;
+
+.is-popover {
+  display: block;
+  width: var(--bb--modal-width--sm, auto);
+  height: var(--bb--modal-height--sm, auto);
+  overflow: visible;
+  visibility: hidden;
+  transition: $popover-transition;
+
+  &.bb-modal-initialized {
+    max-width: 100% !important;
+  }
+
+  .bb-modal-dialog,
+  .bb-modal-content {
+    height: 100%;
+    margin: 0;
+  }
+
+  .bb-modal-content {
+    border-radius: 0;
+  }
+
+  .bb-modal-body {
+    overflow-y: auto;
+  }
+
+  &:not(.custom-animation) {
+    &.placement-x {
+      transform: $popover-transform-x;
+      opacity: 0;
+    }
+    &.placement-y {
+      transform: $popover-transform-y;
+      opacity: 0;
+    }
+  }
+
+  &.show {
+    &:not(.custom-animation) {
+      transform: none;
+      opacity: 1;
+    }
+  }
+
+  &.is-animating {
+    overflow: visible;
+  }
+}

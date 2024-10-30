@@ -1,0 +1,69 @@
+// Share styles
+@import "../../base";
+
+.is-accordion {
+  &-item {
+    border-top: var(--bb--border-top--sm, 1px solid rgba(0,0,0,.125));
+    border-right: var(--bb--border-right--sm, 1px solid rgba(0,0,0,.125));
+    border-bottom: var(--bb--border-bottom--sm, 1px solid rgba(0,0,0,.125));
+    border-left: var(--bb--border-left--sm, 1px solid rgba(0,0,0,.125));
+
+    @media (min-width: map-get($breakpoints, md )) {
+      border-top: var(--bb--border-top--md, 1px solid rgba(0,0,0,.125));
+      border-right: var(--bb--border-right--md, 1px solid rgba(0,0,0,.125));
+      border-bottom: var(--bb--border-bottom--md, 1px solid rgba(0,0,0,.125));
+      border-left: var(--bb--border-left--md, 1px solid rgba(0,0,0,.125));
+    }
+
+    @media (min-width: map-get($breakpoints, lg )) {
+      border-top: var(--bb--border-top--lg, 1px solid rgba(0,0,0,.125));
+      border-right: var(--bb--border-right--lg, 1px solid rgba(0,0,0,.125));
+      border-bottom: var(--bb--border-bottom--lg, 1px solid rgba(0,0,0,.125));
+      border-left: var(--bb--border-left--lg, 1px solid rgba(0,0,0,.125));
+    }
+  }
+
+  &:not([style*="--bb--accordion-gap--"]) {
+    .is-accordion-item:not(:first-of-type) {
+      border-top: 0;
+    }
+  }
+
+  .accordion {
+    &-link,
+    &-body {
+      padding: var(--bb--accordion-padding-y--sm, 1rem) var(--bb--accordion-padding-x--sm, 1.25rem);
+
+      @media (min-width: map-get($breakpoints, md )) {
+        padding: var(--bb--accordion-padding-y--md, 1rem) var(--bb--accordion-padding-x--md, 1.25rem);
+      }
+
+      @media (min-width: map-get($breakpoints, lg )) {
+        padding: var(--bb--accordion-padding-y--lg, 1rem) var(--bb--accordion-padding-x--lg, 1.25rem);
+      }
+    }
+  }
+
+  &[style*="--bb--accordion-gap--sm:"] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bb--accordion-gap--sm);
+  }
+
+  @media (min-width: map-get($breakpoints, md )) {
+    &[style*="--bb--accordion-gap--md:"] {
+      display: flex;
+      flex-direction: column;
+      gap: var(--bb--accordion-gap--md);
+    }
+  }
+
+  @media (min-width: map-get($breakpoints, lg )) {
+    &[style*="--bb--accordion-gap--lg:"] {
+      display: flex;
+      flex-direction: column;
+      gap: var(--bb--accordion-gap--lg);
+    }
+  }
+}
+

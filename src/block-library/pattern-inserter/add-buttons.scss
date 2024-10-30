@@ -1,0 +1,26 @@
+@import "../../base.scss";
+
+#boldblocks-templates-inserter {
+  display: flex;
+
+  button {
+    height: 32px;
+    padding: 0 6px;
+
+    span {
+      display: none;
+    }
+
+    @include break-mobile() {
+      span {
+        display: inline-block;
+        margin-left: 4px;
+      }
+    }
+  }
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+}
